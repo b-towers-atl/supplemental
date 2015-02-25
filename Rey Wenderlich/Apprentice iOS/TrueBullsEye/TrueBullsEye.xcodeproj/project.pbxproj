@@ -77,11 +77,8 @@
 		B6DCA9491A93865B00F69F59 /* TrueBullsEye */ = {
 			isa = PBXGroup;
 			children = (
-				B6DCA94C1A93865B00F69F59 /* AppDelegate.swift */,
 				B6DCA94E1A93865B00F69F59 /* ViewController.swift */,
 				B6DCA96C1A93872C00F69F59 /* Main.storyboard */,
-				B6DCA9531A93865B00F69F59 /* Images.xcassets */,
-				B6DCA9551A93865B00F69F59 /* LaunchScreen.xib */,
 				B6DCA94A1A93865B00F69F59 /* Supporting Files */,
 			);
 			path = TrueBullsEye;
@@ -90,6 +87,9 @@
 		B6DCA94A1A93865B00F69F59 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B6DCA94C1A93865B00F69F59 /* AppDelegate.swift */,
+				B6DCA9551A93865B00F69F59 /* LaunchScreen.xib */,
+				B6DCA9531A93865B00F69F59 /* Images.xcassets */,
 				B6DCA94B1A93865B00F69F59 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -397,6 +397,7 @@
 				B6DCA9681A93865B00F69F59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B6DCA9691A93865B00F69F59 /* Build configuration list for PBXNativeTarget "TrueBullsEyeTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +406,7 @@
 				B6DCA96B1A93865B00F69F59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
