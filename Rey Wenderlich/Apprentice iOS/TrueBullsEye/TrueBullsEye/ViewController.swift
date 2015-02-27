@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class ViewController: UIViewController {
     
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
         
         if let trackRightImage = UIImage(named: "SliderTrackRight") {
             let trackRightResizable = trackRightImage.resizableImageWithCapInsets(insets)
-            slider.setMinimumTrackImage(trackRightResizable, forState: .Normal)
+            slider.setMaximumTrackImage(trackRightResizable, forState: .Normal)
         }
         
     }
@@ -136,6 +137,14 @@ class ViewController: UIViewController {
     
     @IBAction func restartButton(sender: UIButton) {
         startNewGame()
+        
+        // using Core Animation from QuartzCore for crossfade animation
+        let transition = CATransition()
+        transition.type = kCATransitionFade
+        transition.duration = 1
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        
+        view.layer.addAnimation(transition, forKey: nil)
     }
 
 }
