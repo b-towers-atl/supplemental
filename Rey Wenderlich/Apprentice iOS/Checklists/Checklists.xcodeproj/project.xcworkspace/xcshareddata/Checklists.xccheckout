@@ -5,24 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5B68D771-E1B4-418B-8224-D8536AE6E711</string>
+	<string>81E37B6F-EBC7-4349-A536-7D14BF59CBE8</string>
 	<key>IDESourceControlProjectName</key>
-	<string>7Stopwatch</string>
+	<string>Checklists</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>1AA3A6299E5CF256FD44EDEC52C7379C0ABB9174</key>
 		<string>https://github.com/b-towers-atl/supplemental.git</string>
-		<key>E17E11D41C29397285DF3E0CEBC0E7640836CF76</key>
-		<string>https://github.com/b-towers-atl/Supplemental-work.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Udemy/Complete iOS8:Swift by Rob Percival/7Stopwatch/7Stopwatch.xcodeproj</string>
+	<string>Rey Wenderlich/Apprentice iOS/Checklists/Checklists.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>1AA3A6299E5CF256FD44EDEC52C7379C0ABB9174</key>
 		<string>../../../../..</string>
-		<key>E17E11D41C29397285DF3E0CEBC0E7640836CF76</key>
-		<string>../../../../../../Learning%20Development</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/b-towers-atl/supplemental.git</string>
@@ -32,14 +28,6 @@
 	<string>1AA3A6299E5CF256FD44EDEC52C7379C0ABB9174</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E17E11D41C29397285DF3E0CEBC0E7640836CF76</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Learning%20Development</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
