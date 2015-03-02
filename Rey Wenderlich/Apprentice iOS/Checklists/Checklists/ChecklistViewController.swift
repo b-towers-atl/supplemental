@@ -10,6 +10,24 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {
     
+    @IBAction func addItem() {
+        
+        // adding a row to the end of a table, the index for the new row is always equal to the number of items currently in that table
+        let newRowIndex = items.count
+        
+        // create new ChecklistItem and add it to the data model
+        let item = ChecklistItem()
+        item.text = "I am a new row"
+        item.checked = true
+        items.append(item)
+        
+        // tell the tableView about this new row so it can add a new cell for that row
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+        
+    }
+    
     var items: [ChecklistItem]
     
     required init(coder aDecoder: NSCoder) {
@@ -104,6 +122,17 @@ class ChecklistViewController: UITableViewController {
 
         // After didSelectRow is run, deselectRow
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // adds swipe to delete functionality automatically
+        
+        // remove the item from the data model
+        items.removeAtIndex(indexPath.row)
+        
+        // delete the corresponding row from the tableView
+        let indexPaths = [indexPath]
+        tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
     func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
