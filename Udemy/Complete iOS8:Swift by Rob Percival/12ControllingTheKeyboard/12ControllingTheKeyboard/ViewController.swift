@@ -27,7 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         
         // self refers to VC, enterTextField is a property of VC, and the text field's delegate responds to editing-related messages from the text field
-        self.enterTextField.delegate = self // the right hand side self (the VC) is assigned to the delegate
+        self.enterTextField.delegate = self // the right hand side self (the VC) is assigned to be the delegate
         
         
     }

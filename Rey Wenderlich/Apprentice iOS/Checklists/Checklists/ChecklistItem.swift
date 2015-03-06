@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ChecklistItem {
+class ChecklistItem: NSObject {
+    // itemToEdit is nil when adding a new to-do item
+    
     var text = ""
     var checked = false
     

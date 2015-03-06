@@ -8,26 +8,8 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController {
-    
-    @IBAction func addItem() {
-        
-        // adding a row to the end of a table, the index for the new row is always equal to the number of items currently in that table
-        let newRowIndex = items.count
-        
-        // create new ChecklistItem and add it to the data model
-        let item = ChecklistItem()
-        item.text = "I am a new row"
-        item.checked = true
-        items.append(item)
-        
-        // tell the tableView about this new row so it can add a new cell for that row
-        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
-        
-    }
-    
+class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+
     var items: [ChecklistItem]
     
     required init(coder aDecoder: NSCoder) {
@@ -86,8 +68,73 @@ class ChecklistViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "AddItem" {
+            // Since AddItemViewController is embedded in a navigation controller, assign that first to a variable navigationController
+            // With that variable, obtain the AddItemViewController with the .topViewController property
+            // Lastly, assign AddItemViewController's delegate to self (ChecklistViewController)
+            
+            let navigationController = segue.destinationViewController as UINavigationController
+            
+            let controller = navigationController.topViewController as AddItemViewController
+        
+            controller.delegate = self
+            
+        } else if segue.identifier == "EditItem" {
+            // If itemToEdit property is given a ChecklistItem object, then switch to Edit Item screen
+            
+            let navigationController = segue.destinationViewController as UINavigationController
+            
+            let controller = navigationController.topViewController as AddItemViewController
+            
+            controller.delegate = self
+            
+            if let indexPathConstant = tableView.indexPathForCell(sender as UITableViewCell) {
+                // sender contains a reference to the control that triggered the segue
+                // In this case, the table view cell whose disclosure button was tapped
+                
+                controller.itemToEdit = items[indexPathConstant.row]
+            }
+        }
+    }
+    
+    ///// DELEGATE-PROTOCOL METHODS
+    
+    func addItemViewControllerDidCancel(controller: AddItemViewController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
+        
+        let newRowIndex = items.count
+        
+        items.append(item)
+        
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Fade)
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem) {
+        // Refresh the label on the table view cell
+        
+        if let index = find(items, item) {
+            
+            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+            
+            if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+                configureTextForCell(cell, withChecklistItem: item)
+            }
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    ///// TABLE VIEW METHODS
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -125,23 +172,27 @@ class ChecklistViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        // adds swipe to delete functionality automatically
+        // Adds swipe to delete functionality automatically
         
-        // remove the item from the data model
+        // Aemove the item from the data model
         items.removeAtIndex(indexPath.row)
         
-        // delete the corresponding row from the tableView
+        // Delete the corresponding row from the tableView
         let indexPaths = [indexPath]
         tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
+    ///// Custom configure methods for cells
+    
     func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
         // Handles the checkmark accessory on the cell (the view)
     
+        let label = cell.viewWithTag(1001) as UILabel
+        
         if item.checked {
-            cell.accessoryType = .Checkmark
+            label.text = "☑️"
         } else {
-            cell.accessoryType = .None
+            label.text = ""
         }
     }
     
@@ -150,4 +201,27 @@ class ChecklistViewController: UITableViewController {
         label.text = item.text
     }
 }
+
+
+///// OLD CODE
+
+/*
+    @IBAction func addItem() {
+
+        // adding a row to the end of a table, the index for the new row is always equal to the number of items currently in that table
+        let newRowIndex = items.count
+
+        // create new ChecklistItem and add it to the data model
+        let item = ChecklistItem()
+        item.text = "I am a new row"
+        item.checked = true
+        items.append(item)
+
+        // tell the tableView about this new row so it can add a new cell for that row
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Fade)
+
+    }
+*/
 

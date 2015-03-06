@@ -12,10 +12,15 @@ class ViewController: UIViewController {
 
     var timer = NSTimer()
     var count = 0       // our count variable keeps track of time
+    var isActive = false
     
     @IBOutlet var timerLabel: UILabel!
     
     @IBAction func playButton(sender: AnyObject) {
+        
+        if isActive { return }
+        
+        isActive = true
         
         // NSTimer does not store our time at all, just running tickTock() every second
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("tickTock"), userInfo: nil, repeats: true)
@@ -26,15 +31,19 @@ class ViewController: UIViewController {
         
         timer.invalidate()
         
+        isActive = false
+        
     }
 
     @IBAction func resetButton(sender: AnyObject) {
         
         timer.invalidate()
         
+        isActive = false
+        
         count = 0
         
-        timerLabel.text = "0"
+        timerLabel.text = "\(count)"
     }
     
     func tickTock() {

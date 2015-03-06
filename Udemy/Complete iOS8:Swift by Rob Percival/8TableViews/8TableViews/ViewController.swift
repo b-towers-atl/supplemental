@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // this function allows us to return an integer which is the number of rows in the section
+        // This function allows us to return an integer which is the number of rows
         
         return cellContent.count
         
@@ -27,8 +27,8 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     // indexPath variable tells you what row you are on at any given time
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // this method defines the contents of each individual cell, allows us to display whatever content we want (text/picture/etc), as well as the look of the cell
-        // returns a UITableViewCell as well as all the content we want to ship out with it
+        // This method defines the contents of each individual cell, allows us to display whatever content we want (text/picture/etc), as well as the look of the cell
+        // Returns a UITableViewCell as well as all the content we want to ship out with it
         
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myCell")
         

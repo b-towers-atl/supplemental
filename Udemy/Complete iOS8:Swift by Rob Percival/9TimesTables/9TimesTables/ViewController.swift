@@ -16,7 +16,11 @@ class ViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var sliderValue: UISlider!
     
+    @IBOutlet weak var currentNumberLabel: UILabel!
+    
     @IBAction func sliderMoved(sender: AnyObject) {
+        
+        currentNumberLabel.text = "\(sliderValue.value)"
         
         // we have to .reloadData() to the tableView because this method updates it
         tableView.reloadData()

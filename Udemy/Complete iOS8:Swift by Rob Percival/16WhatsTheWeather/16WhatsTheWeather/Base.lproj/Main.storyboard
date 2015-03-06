@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="_6WhatsTheWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1mountain_roads.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4Ni-1X-tnj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's The Weather?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNW-fH-LFT">
+                                <rect key="frame" x="194" y="64" width="213" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="KPZ-wP-vy2"/>
+                                    <constraint firstAttribute="width" constant="213" id="Vfi-Xx-UbZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your city:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41o-Me-94g">
+                                <rect key="frame" x="242" y="134" width="116" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="PcZ-jS-HPs"/>
+                                    <constraint firstAttribute="width" constant="116" id="XEW-z1-fWt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6i4-0F-TYf">
+                                <rect key="frame" x="16" y="164" width="568" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ikj-Be-g7V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qs-Ro-4qb">
+                                <rect key="frame" x="215" y="239" width="170" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1uU-Jc-XDd"/>
+                                    <constraint firstAttribute="width" constant="170" id="Gki-6M-dv1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Find the weather">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="findWeatherButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DTd-h9-zlq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ido-J4-9cn">
+                                <rect key="frame" x="16" y="304" width="568" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="wmf-s8-Grf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4qs-Ro-4qb" firstAttribute="top" secondItem="6i4-0F-TYf" secondAttribute="bottom" constant="31" id="34H-bZ-0wU"/>
+                            <constraint firstItem="Ido-J4-9cn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="5VC-Od-hJv"/>
+                            <constraint firstItem="Ido-J4-9cn" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="6Mw-rK-lQX"/>
+                            <constraint firstItem="4Ni-1X-tnj" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="7r6-cV-fif"/>
+                            <constraint firstItem="4Ni-1X-tnj" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="8yv-m4-GHa"/>
+                            <constraint firstItem="6i4-0F-TYf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="L2N-vs-8dm"/>
+                            <constraint firstItem="41o-Me-94g" firstAttribute="top" secondItem="vNW-fH-LFT" secondAttribute="bottom" constant="41" id="M7Y-2I-zZP"/>
+                            <constraint firstAttribute="centerX" secondItem="vNW-fH-LFT" secondAttribute="centerX" id="QMC-fz-0ne"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Ni-1X-tnj" secondAttribute="trailing" constant="-16" id="Vzp-4h-IQL"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="4Ni-1X-tnj" secondAttribute="bottom" id="acG-ar-p5K"/>
+                            <constraint firstItem="6i4-0F-TYf" firstAttribute="top" secondItem="41o-Me-94g" secondAttribute="bottom" constant="8" id="b7I-NS-8Rd"/>
+                            <constraint firstItem="Ido-J4-9cn" firstAttribute="top" secondItem="4qs-Ro-4qb" secondAttribute="bottom" constant="21" id="csZ-hV-Tdh"/>
+                            <constraint firstItem="vNW-fH-LFT" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="44" id="iRv-Tb-nOE"/>
+                            <constraint firstAttribute="centerX" secondItem="4qs-Ro-4qb" secondAttribute="centerX" id="jNC-jI-rIv"/>
+                            <constraint firstAttribute="centerX" secondItem="41o-Me-94g" secondAttribute="centerX" id="pfr-uI-rcj"/>
+                            <constraint firstItem="6i4-0F-TYf" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="wXV-AM-f7h"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="Ido-J4-9cn" id="AfB-wV-lVK"/>
+                        <outlet property="userCityTextField" destination="6i4-0F-TYf" id="Jn1-mo-er9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1mountain_roads.jpg" width="3840" height="2400"/>
+    </resources>
+</document>
