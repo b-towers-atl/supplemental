@@ -9,12 +9,23 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    // manager handles all of our location information
+    var manager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ///// CORE LOCATION
+        
+        // This only happens for the first time the app is loaded
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     
         
         ///// DISPLAY MAP REGION
@@ -71,12 +82,37 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         mapView.addAnnotation(newAnnotation)
     }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        // Runs anytime location is updated
+        
+        println("locations = \(locations)")
+        
+        var userLocation = locations[0] as CLLocation
+        
+        // User location coordinates
+        var latitude = userLocation.coordinate.latitude
+        var longitude = userLocation.coordinate.longitude
+        
+        var latDelta: CLLocationDegrees = 0.01
+        var longDelta: CLLocationDegrees = 0.01
+        
+        var span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        var location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        var region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+
+        mapView.setRegion(region, animated: true)
+    }
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        // This function catches an error, for example, if GPS is off, or the user declines location request
+        
+        println(error)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

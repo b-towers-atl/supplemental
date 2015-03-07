@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>81E37B6F-EBC7-4349-A536-7D14BF59CBE8</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Checklists</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1AA3A6299E5CF256FD44EDEC52C7379C0ABB9174</key>
+		<string>https://github.com/b-towers-atl/supplemental.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Rey Wenderlich/Apprentice iOS/Checklists/Checklists.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1AA3A6299E5CF256FD44EDEC52C7379C0ABB9174</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/b-towers-atl/supplemental.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1AA3A6299E5CF256FD44EDEC52C7379C0ABB9174</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1AA3A6299E5CF256FD44EDEC52C7379C0ABB9174</string>
+			<key>IDESourceControlWCCName</key>
+			<string>supplemental</string>
+		</dict>
+	</array>
+</dict>
+</plist>

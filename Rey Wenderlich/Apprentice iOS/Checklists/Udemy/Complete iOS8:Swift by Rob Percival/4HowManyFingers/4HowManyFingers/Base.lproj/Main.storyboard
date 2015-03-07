@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="_HowManyFingers" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many fingers am I holding up?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31a-P8-n8v">
+                                <rect key="frame" x="144" y="52" width="312" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="OY9-EJ-yFY"/>
+                                    <constraint firstAttribute="width" constant="312" id="ts9-YF-hpl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BvF-Mg-k57">
+                                <rect key="frame" x="252" y="131" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="Ecl-ng-W0b"/>
+                                    <constraint firstAttribute="height" constant="30" id="lL6-8M-Ynh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint: Between 0 to 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfx-Q5-7Vh">
+                                <rect key="frame" x="202" y="102" width="196" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="q1c-rt-Zsy"/>
+                                    <constraint firstAttribute="height" constant="21" id="wyl-32-Aeo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xa7-Zp-3RW">
+                                <rect key="frame" x="3" y="231" width="353" height="62"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="opF-aO-0MS">
+                                <rect key="frame" x="277" y="178" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ke4-mg-kGy"/>
+                                    <constraint firstAttribute="width" constant="46" id="nAG-88-n3r"/>
+                                </constraints>
+                                <state key="normal" title="Guess">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="guessButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Prp-5l-vcL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="31a-P8-n8v" secondAttribute="centerX" id="9U6-9V-bey"/>
+                            <constraint firstItem="BvF-Mg-k57" firstAttribute="top" secondItem="kfx-Q5-7Vh" secondAttribute="bottom" constant="8" id="GcP-a0-snD"/>
+                            <constraint firstItem="31a-P8-n8v" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="32" id="JW3-l7-nNf"/>
+                            <constraint firstItem="opF-aO-0MS" firstAttribute="top" secondItem="BvF-Mg-k57" secondAttribute="bottom" constant="17" id="Ofy-76-ntd"/>
+                            <constraint firstAttribute="centerX" secondItem="opF-aO-0MS" secondAttribute="centerX" id="Tei-up-3Lk"/>
+                            <constraint firstAttribute="centerX" secondItem="kfx-Q5-7Vh" secondAttribute="centerX" id="aAw-gn-qRe"/>
+                            <constraint firstItem="kfx-Q5-7Vh" firstAttribute="top" secondItem="31a-P8-n8v" secondAttribute="bottom" constant="8" id="ilS-0E-np0"/>
+                            <constraint firstAttribute="centerX" secondItem="BvF-Mg-k57" secondAttribute="centerX" id="jGT-7j-q0e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="answerLabel" destination="Xa7-Zp-3RW" id="LqT-Is-Ln1"/>
+                        <outlet property="guessTextField" destination="BvF-Mg-k57" id="uLC-0U-Yez"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

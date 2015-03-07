@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
 
     var items: [ChecklistItem]
     
@@ -56,6 +56,9 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         items.append(row7item)
         
         super.init(coder: aDecoder)
+        
+        println("Documents folder is \(documentsDirectory())")
+        println("Data file path is \(dataFilePath())")
     }
 
     override func viewDidLoad() {
@@ -69,16 +72,18 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         // Dispose of any resources that can be recreated.
     }
     
+    ///// PREPARE FOR SEGUE, SEND DATA FROM CHECKLIST VC TO ITEMDETAIL VC
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "AddItem" {
-            // Since AddItemViewController is embedded in a navigation controller, assign that first to a variable navigationController
-            // With that variable, obtain the AddItemViewController with the .topViewController property
-            // Lastly, assign AddItemViewController's delegate to self (ChecklistViewController)
+            // Since ItemDetailViewController is embedded in a navigation controller, assign that first to a variable navigationController
+            // With that variable, obtain the ItemDetailViewController with the .topViewController property
+            // Lastly, assign ItemDetailViewController's delegate to self (ChecklistViewController)
             
             let navigationController = segue.destinationViewController as UINavigationController
             
-            let controller = navigationController.topViewController as AddItemViewController
+            let controller = navigationController.topViewController as ItemDetailViewController
         
             controller.delegate = self
             
@@ -87,7 +92,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
             
             let navigationController = segue.destinationViewController as UINavigationController
             
-            let controller = navigationController.topViewController as AddItemViewController
+            let controller = navigationController.topViewController as ItemDetailViewController
             
             controller.delegate = self
             
@@ -102,11 +107,11 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     
     ///// DELEGATE-PROTOCOL METHODS
     
-    func addItemViewControllerDidCancel(controller: AddItemViewController) {
+    func itemDetailViewControllerDidCancel(controller: ItemDetailViewController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem) {
         
         let newRowIndex = items.count
         
@@ -119,7 +124,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem) {
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem) {
         // Refresh the label on the table view cell
         
         if let index = find(items, item) {
@@ -182,7 +187,7 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
         tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Automatic)
     }
     
-    ///// Custom configure methods for cells
+    ///// CUSTOM CONFIGURE METHODS FOR CELL
     
     func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
         // Handles the checkmark accessory on the cell (the view)
@@ -199,6 +204,22 @@ class ChecklistViewController: UITableViewController, AddItemViewControllerDeleg
     func configureTextForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
         let label = cell.viewWithTag(1000) as UILabel
         label.text = item.text
+    }
+    
+    ///// DIRECTORY METHODS
+    
+    func documentsDirectory() -> String {
+        // Creates a list of directory search paths and returns the first item
+        
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true) as [String]
+        
+        return paths[0]
+    }
+    
+    func dataFilePath() -> String {
+        // Constructs the full path to the file that will store the checklist items
+        
+        return documentsDirectory().stringByAppendingPathComponent("Checklists.plist")
     }
 }
 
