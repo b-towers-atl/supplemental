@@ -218,6 +218,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     func dataFilePath() -> String {
         // Constructs the full path to the file that will store the checklist items
+        // Checklists.plist is the file that will store the checklist items, and it lives inside the Documents directory
         
         return documentsDirectory().stringByAppendingPathComponent("Checklists.plist")
     }
